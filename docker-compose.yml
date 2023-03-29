@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=auuntoo
+      - POSTGRES_USER=auuntoo
+    networks:
+      - local-net
+  
+  adminer:
+    image: adminer:latest
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 4000:8080
+    networks:
+      - local-net
+  
+  nestjs-crud-starter:
+    container_name: nestjs-crud-starter
+    image: nestjs-crud-starter
+    build: .
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    volumes:
+      - ~/apps/uploads:/var/lib/nestjs-crud-starter/uploads
+    environment:
+      - NODE_ENV=staging
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge
