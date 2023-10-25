@@ -20,7 +20,7 @@ export class VerifyOtpDTO {
   readonly phoneNumber!: string;
 
   @ApiProperty({
-    type: String,
+    type: Number,
     required: true,
     example: 123456,
   })

@@ -8,6 +8,9 @@ export enum ENUM_TABLE_NAMES {
   USER_ROLES = 'user_roles',
   ROLE_PERMISSIONS = 'role_permissions',
   AUTH_STATS = 'auth_stats',
+
+  QUESTIONS = 'questions',
+  ANSWERS = 'answers',
 }
 
 export enum ENUM_SEQUENCE {
@@ -22,7 +25,7 @@ export enum ENUM_COLUMN_TYPES {
   TEXT = 'text',
   VARCHAR = 'varchar',
   BOOLEAN = 'boolean',
-  TIMESTAMP_UTC = 'timestamp without time zone',
+  TIMESTAMP_UTC = 'timestamp with time zone',
   ENUM = 'enum',
 }
 

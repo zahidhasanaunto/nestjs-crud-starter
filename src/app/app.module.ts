@@ -9,6 +9,7 @@ import { ExceptionFilter } from './filters';
 import { HelpersModule } from './helpers/helpers.module';
 import { ResponseInterceptor } from './interceptors/response.interceptor';
 import { AuthModule } from './modules/auth/auth.module';
+import { QuestionModule } from './modules/questionBank/questionBank.module';
 import { UserModule } from './modules/user/user.module';
 
 const MODULES = [
@@ -22,6 +23,8 @@ const MODULES = [
   }),
   AuthModule,
   UserModule,
+
+  QuestionModule,
 ];
 @Module({
   imports: [...MODULES],
